@@ -82,7 +82,8 @@ useEffect(()=>{
       <td>{listagem.course.name}</td>
       <td>{listagem.campus.city}</td>
       <td>{listagem.full_price}</td>
-      <td><Modals /></td>
+      <td> <Modals listagem={listagem}/></td>
+      
     </tr>
     )
     
