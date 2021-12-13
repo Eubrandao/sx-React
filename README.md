@@ -1,6 +1,6 @@
 # Projeto Sx
 
-Utilizando o React para listar dados de uma API externa
+Utilizando o React para listar dados de uma API externa, ao acessar o site abaixo, você poderá ver uma listagem de cursos, na qual poderá realizar um filtro para retornar o que você pesquisou, há também um botão para exibir mais detalhes desse curso.
 # Acesse 
 https://sx-react.herokuapp.com/
 
