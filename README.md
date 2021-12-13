@@ -8,6 +8,7 @@ https://sx-react.herokuapp.com/
 # API
 O projeto se baseia em consumo de uma API externa, entretanto foi necessário acrescentar campos nessa API como o ID, Utilizei o MongoDb para armazenar os dados dessa API
 E Consumi-lás novamente.
+API: https://api-sx.herokuapp.com/list (Listagem Geral) ou https://api-sx.herokuapp.com/list/[id] para listar Faculdades específicas.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
