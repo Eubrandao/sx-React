@@ -1,3 +1,10 @@
+# Projeto Sx
+
+Utilizando o React para listar dados de uma API externa
+# Acesse 
+https://sx-react.herokuapp.com/
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
