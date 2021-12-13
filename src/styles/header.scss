@@ -1,0 +1,22 @@
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    .mb-3{
+        width: 300px;
+        align-self: center;
+        margin-top: 10px;
+    }
+
+    h1{
+        color: #555;
+        font-family: 'Roboto', 'Sans-serif';
+        font-weight: bold;
+    }
+}
