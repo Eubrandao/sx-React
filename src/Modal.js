@@ -1,75 +1,89 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {Modal, Button} from 'react-bootstrap';
 import image from './images/logotipo_unip.jpg'
 
 import './styles/app.scss'
 
-function Modals() {
-    const [show, setShow] = useState(false);
-    const [course,setCourse] = useState([])
-  
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      show: false
+    };
+  }
 
-    useEffect(()=>{
-      fetch('https://api-sx.herokuapp.com/list/')
-      .then(response=> response.json())
-      .then(result => setCourse(result))
-      .then(result => console.log(result))
-      .catch(error=> console.log(error))
+  handleShow = () => {
+    this.setState({
+      show: !this.state.show
+    });
+  };
+
+  handleClose = () =>{
+    this.setState({
+      show: false
+    })
+  }
+
+    render(){
+
+      return (
+        <>
+          <Button variant="primary" onClick={this.handleShow}>
+            Mais
+          </Button>
     
-    },[])
+          <Modal className="teste" show={this.state.show} onHide={this.handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Sobre</Modal.Title>
+            </Modal.Header>
   
-    return (
-      <>
-        <Button variant="primary" onClick={handleShow}>
-          Mais
-        </Button>
+            <Modal.Body>
+          
   
-        <Modal className="teste" show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Sobre</Modal.Title>
-          </Modal.Header>
-
-          {
     
-    course.map(csr=>
-          <Modal.Body>
-        
-
+                <div style={{display:"flex", justifyContent:"space-between"}}>
+                    <img style={{width: "120px"}} src={image}/>
+                    
+                </div>
   
-              <div style={{display:"flex", justifyContent:"space-between"}}>
-                  <img style={{width: "120px"}} src={image}/>
-                  
-              </div>
+                <div style={{display:"flex", justifyContent:"space-between"}}>
+                    <div style={{fontSize: '20px'}}>{this.state.show ? <div>{this.props.listagem.course.name}</div> : null}</div>
+                    <div style={{fontSize: '20px', fontWeight: 'bold'}}>{this.state.show ? <div>{this.props.listagem.course.level}</div> : null}</div>
 
-              <div style={{display:"flex", justifyContent:"space-between"}}>
-                  <h1 style={{fontSize:"20px"}}>{csr.course.name}</h1>
-                  <h1 style={{fontSize:"20px"}}>{csr.course.level}</h1>
-              </div>
+                   
+                </div>
 
-              <div style={{display:"flex", justifyContent:"center"}}>
-                  <h1>{csr.full_price}</h1>
-              </div>
+                <div style={{display:"flex", justifyContent:"space-between"}}>
+                    <div style={{fontSize: '20px'}}>{this.state.show ? <div>{this.props.listagem.university.name}</div> : null}</div>
+                    <div style={{fontSize: '20px'}}>{this.state.show ? <div>{this.props.listagem.campus.city}</div> : null}</div>
 
-
+                   
+                </div>
   
-          </Modal.Body>
-
+                <div style={{display:"flex", justifyContent:"center"}}>
+                <div style={{fontSize: '20px'}}>{this.state.show ? <div>{this.props.listagem.full_price}</div> : null}</div>
+                </div>
+  
+  
     
-        )
-
-      }
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Fechar
-            </Button>
-            
-          </Modal.Footer>
-        </Modal>
+            </Modal.Body>
+  
+      
+          
+  
+      
+            <Modal.Footer>
+              <Button variant="secondary" onClick={this.handleClose}>
+                Fechar
+              </Button>
+              
+            </Modal.Footer>
+          </Modal>
+      
+        </>
+        );
+    }
+  
     
-      </>
-    );
   }
   
- export default Modals
